@@ -1,0 +1,310 @@
+/* ========================= */
+/*          GENERAL          */
+/* ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f5f7fb;
+    font-family:Tahoma,sans-serif;
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* ========================= */
+/*         NAVBAR            */
+/* ========================= */
+
+.navbar{
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.navbar-brand{
+    font-size:1.4rem;
+    font-weight:bold;
+}
+
+/* ========================= */
+/*        CONTAINER          */
+/* ========================= */
+
+.container{
+    margin-top:30px;
+}
+
+/* ========================= */
+/*          TITLES           */
+/* ========================= */
+
+.page-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.page-title h1{
+    font-size:2.4rem;
+    font-weight:bold;
+}
+
+.page-title p{
+    color:#777;
+}
+
+/* ========================= */
+/*        SEARCH BOX         */
+/* ========================= */
+
+#search-box{
+    position:relative;
+    max-width:700px;
+    margin:auto;
+    margin-bottom:40px;
+}
+
+#search{
+    border-radius:12px;
+    height:52px;
+    font-size:18px;
+}
+
+#search:focus{
+    box-shadow:none;
+    border-color:#0d6efd;
+}
+
+/* ========================= */
+/*      SEARCH RESULT        */
+/* ========================= */
+
+#suggestions{
+
+    display:none;
+
+    position:absolute;
+
+    top:58px;
+
+    width:100%;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    z-index:999;
+
+    max-height:320px;
+
+    overflow-y:auto;
+
+}
+
+#suggestions a{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px;
+
+    color:#333;
+
+    transition:.2s;
+
+}
+
+#suggestions a:hover{
+
+    background:#f2f2f2;
+
+}
+
+/* ========================= */
+/*          CARD             */
+/* ========================= */
+
+.card{
+
+    border:none;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:0 12px 35px rgba(0,0,0,.15);
+
+}
+
+.card-body{
+
+    padding:25px;
+
+}
+
+.card-title{
+
+    font-size:1.4rem;
+
+    font-weight:bold;
+
+    margin-bottom:20px;
+
+    direction: auto;
+    
+    text-align: start;
+}
+
+.card-text{
+
+    margin-bottom:10px;
+
+}
+
+/* ========================= */
+/*         BADGES            */
+/* ========================= */
+
+.badge{
+
+    font-size:.9rem;
+
+    padding:8px 12px;
+
+    border-radius:20px;
+
+}
+
+/* ========================= */
+/*         BUTTONS           */
+/* ========================= */
+
+.btn{
+
+    border-radius:10px;
+
+    transition:.2s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ========================= */
+/*          FORMS            */
+/* ========================= */
+
+form{
+
+    width:100%;
+
+}
+
+input,
+select{
+
+    border-radius:10px !important;
+
+}
+
+label{
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+}
+
+/* ========================= */
+/*         BOOK PAGE         */
+/* ========================= */
+
+.book-info{
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+.book-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:25px;
+
+}
+
+/* ========================= */
+/*         FOOTER            */
+/* ========================= */
+
+footer{
+
+    margin-top:80px;
+
+    color:#777;
+
+    text-align:center;
+
+}
+
+/* ========================= */
+/*       RESPONSIVE          */
+/* ========================= */
+
+@media(max-width:768px){
+
+.page-title h1{
+
+    font-size:2rem;
+
+}
+
+.book-actions{
+
+    flex-direction:column;
+
+}
+
+.book-actions .btn{
+
+    width:100%;
+
+}
+
+#search-box{
+
+    max-width:100%;
+
+}
+
+}

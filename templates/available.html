@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}
+
+کتاب‌های موجود
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+<h1 class="text-center mb-5">
+
+🟢 کتاب‌های موجود
+
+</h1>
+
+
+
+
+
+<div class="row">
+
+
+
+{% for book_id, data in books.items() %}
+
+
+
+<div class="col-md-4 mb-4">
+
+
+
+<div class="card shadow h-100">
+
+
+
+<div class="card-body text-center">
+
+
+
+<h4 dir="auto">
+
+📖 {{ data.book.title }}
+
+</h4>
+
+
+
+<p>
+
+✍️ {{ data.book.author }}
+
+</p>
+
+
+
+<p>
+
+🏷 {{ data.book.genre }}
+
+</p>
+
+
+
+
+<hr>
+
+
+
+{% if data.last_return %}
+
+
+
+<p class="text-success">
+
+📤 آخرین تحویل:
+
+<br>
+
+{{ data.last_return.date }}
+
+</p>
+
+
+<p>
+
+👤 آخرین امانت‌گیرنده:
+
+<br>
+
+{{ data.last_return.borrower }}
+
+</p>
+
+
+
+{% else %}
+
+
+<p class="text-muted">
+
+هنوز امانت داده نشده
+
+</p>
+
+
+{% endif %}
+
+
+
+
+
+<a href="/book/{{ book_id }}"
+
+class="btn btn-primary">
+
+
+مشاهده کتاب
+
+
+</a>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+
+
+
+<a href="/dashboard"
+
+class="btn btn-secondary">
+
+
+⬅ بازگشت
+
+
+</a>
+
+
+
+
+{% endblock %}

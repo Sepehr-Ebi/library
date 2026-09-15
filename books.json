@@ -1,0 +1,83 @@
+{
+    "101": {
+        "title": "Clean Code",
+        "author": "Robert Martin",
+        "year": 2008,
+        "genre": "Programming",
+        "available": true,
+        "borrower": null,
+        "history": [
+            {
+                "borrower": "ی",
+                "action": "borrow",
+                "date": "2026-08-01 23:07:38"
+            },
+            {
+                "borrower": "ی",
+                "action": "return",
+                "date": "2026-08-01 23:07:42",
+                "duration": "0:00:04"
+            },
+            {
+                "borrower": "سی",
+                "action": "borrow",
+                "date": "2026-08-01 23:07:49"
+            },
+            {
+                "borrower": "سی",
+                "action": "return",
+                "date": "2026-08-01 23:07:52",
+                "duration": "0:00:03"
+            }
+        ]
+    },
+    "102": {
+        "title": "Python Crash Course",
+        "author": "Eric Matthes",
+        "year": 2023,
+        "genre": "Programming",
+        "available": true,
+        "borrower": null,
+        "history": [
+            {
+                "borrower": "یس",
+                "action": "borrow",
+                "date": "2026-08-01 23:08:17"
+            },
+            {
+                "borrower": "یس",
+                "action": "return",
+                "date": "2026-08-01 23:08:20",
+                "duration": "0:00:03"
+            }
+        ]
+    },
+    "103": {
+        "title": "1984",
+        "author": "George Orwell",
+        "year": 1949,
+        "genre": "Novel",
+        "available": false,
+        "borrower": "سطز",
+        "history": [
+            {
+                "borrower": "بقث",
+                "action": "borrow",
+                "date": "2026-08-01 23:08:32"
+            },
+            {
+                "borrower": "بقث",
+                "action": "return",
+                "date": "2026-08-01 23:08:37",
+                "duration": "0:00:05"
+            },
+            {
+                "action": "borrow",
+                "borrower": "سطز",
+                "date": "1405/05/10 - 23:26",
+                "timestamp": "2026-08-01 23:26:16",
+                "duration": null
+            }
+        ]
+    }
+}

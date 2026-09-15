@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+همه کتاب‌ها
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+<h1 class="text-center mb-5">
+
+📚 همه کتاب‌ها
+
+</h1>
+
+
+
+
+<div class="row">
+
+
+{% for book_id, book in books.items() %}
+
+
+
+<div class="col-md-4 mb-4">
+
+
+<div class="card shadow h-100">
+
+
+
+<div class="card-body text-center">
+
+
+
+<h4 dir="auto">
+
+📖 {{ book["title"] }}
+
+</h4>
+
+
+
+<p>
+
+✍️ {{ book["author"] }}
+
+</p>
+
+
+
+<p>
+
+🏷 {{ book["genre"] }}
+
+</p>
+
+
+
+
+
+{% if book["available"] %}
+
+<span class="badge bg-success">
+
+موجود
+
+</span>
+
+
+{% else %}
+
+<span class="badge bg-danger">
+
+امانت داده شده
+
+</span>
+
+
+{% endif %}
+
+
+
+
+
+<br><br>
+
+
+
+<a href="/book/{{ book_id }}"
+
+class="btn btn-primary">
+
+مشاهده کتاب
+
+</a>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+
+
+<a href="/dashboard"
+
+class="btn btn-secondary mt-4">
+
+⬅ بازگشت به داشبورد
+
+</a>
+
+
+
+{% endblock %}

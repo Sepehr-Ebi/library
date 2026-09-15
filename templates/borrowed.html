@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}
+
+کتاب‌های امانتی
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+
+<h1 class="text-center mb-5">
+
+🔴 کتاب‌های امانت داده شده
+
+</h1>
+
+
+
+
+
+<div class="row">
+
+
+
+{% for book_id, book in books.items() %}
+
+
+
+
+<div class="col-md-4 mb-4">
+
+
+
+<div class="card shadow">
+
+
+
+<div class="card-body text-center">
+
+
+
+<h4 dir="auto">
+
+📖 {{ book["title"] }}
+
+</h4>
+
+
+
+
+<p>
+
+👤
+
+{{ book["borrower"] }}
+
+</p>
+
+
+
+
+<a href="/book/{{ book_id }}"
+
+class="btn btn-danger">
+
+بررسی امانت
+
+</a>
+
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+
+</div>
+
+
+
+
+
+<a href="/dashboard"
+
+class="btn btn-secondary">
+
+⬅ بازگشت
+
+</a>
+
+
+
+{% endblock %}

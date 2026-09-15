@@ -1,0 +1,324 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+کتابخانه
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="page-title">
+
+    <h1>
+        📚 کتابخانه من
+    </h1>
+
+    <p>
+        مدیریت و مشاهده کتاب‌ها
+    </p>
+
+</div>
+
+
+
+<!-- Search -->
+
+<div id="search-box">
+
+
+    <form action="/search" method="GET">
+
+
+        <div class="input-group">
+
+
+            <input
+                type="text"
+                id="search"
+                name="q"
+                class="form-control"
+                placeholder="جستجوی کتاب، نویسنده یا ژانر..."
+                autocomplete="off"
+            >
+
+
+            <button class="btn btn-primary" type="submit">
+
+                <i class="bi bi-search"></i>
+
+            </button>
+
+
+        </div>
+
+
+    </form>
+
+
+
+    <div id="suggestions"></div>
+
+
+</div>
+
+
+
+
+<h2 class="mb-4">
+
+    📖 لیست کتاب‌ها
+
+</h2>
+
+
+
+
+<div class="row">
+
+
+{% for book_id, book in books.items() %}
+
+
+
+<div class="col-lg-4 col-md-6 mb-4">
+
+
+
+    <div class="card h-100">
+
+
+
+        <div class="card-body">
+
+
+
+            <h5 class="card-title" dir="auto">
+
+                📖 {{ book["title"] }}
+
+            </h5>
+
+
+
+            <p class="card-text">
+
+                👤 نویسنده:
+
+                {{ book["author"] }}
+
+            </p>
+
+
+
+            <p class="card-text">
+
+                🏷 ژانر:
+
+                {{ book["genre"] }}
+
+            </p>
+            {% if book["available"] %}
+
+<p>
+
+<span class="badge bg-success">
+
+    🟢 موجود
+
+</span>
+
+</p>
+
+{% else %}
+
+<p>
+
+<span class="badge bg-danger">
+
+    🔴 امانت داده شده
+
+</span>
+
+</p>
+
+
+{% endif %}
+
+
+
+
+<a href="/book/{{ book_id }}"
+   class="btn btn-primary w-100">
+
+    <i class="bi bi-eye"></i>
+
+    مشاهده کتاب
+
+</a>
+
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+</div>
+<script>
+
+const search = document.getElementById("search");
+
+const suggestions = document.getElementById("suggestions");
+
+
+
+const books = [
+
+
+{% for book_id, book in books.items() %}
+
+{
+
+    id: "{{ book_id }}",
+
+    title: "{{ book['title'] }}"
+
+},
+
+
+{% endfor %}
+
+
+];
+
+
+
+
+
+search.addEventListener("input", function(){
+
+
+    let value = this.value.toLowerCase();
+
+
+    suggestions.innerHTML = "";
+
+
+
+    if(value === ""){
+
+        suggestions.style.display = "none";
+
+        return;
+
+    }
+
+
+
+
+
+    books.forEach(function(book){
+
+
+
+        if(book.title.toLowerCase().includes(value)){
+
+
+
+            let link = document.createElement("a");
+
+
+
+            link.href = "/book/" + book.id;
+
+
+
+            link.innerHTML = `
+
+                <span>
+
+                    📖 ${book.title}
+
+                </span>
+
+
+                <button class="btn btn-sm btn-primary">
+
+                    مشاهده
+
+                </button>
+
+            `;
+
+
+
+            suggestions.appendChild(link);
+
+
+
+        }
+
+
+
+    });
+
+
+
+
+
+    if(suggestions.children.length > 0){
+
+
+        suggestions.style.display = "block";
+
+
+    }
+
+    else{
+
+
+        suggestions.style.display = "none";
+
+
+    }
+
+
+
+});
+
+
+
+
+
+document.addEventListener("click", function(event){
+
+
+
+    if(!event.target.closest("#search-box")){
+
+
+        suggestions.style.display = "none";
+
+
+    }
+
+
+
+});
+
+
+
+</script>
+
+
+{% endblock %}
